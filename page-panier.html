@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.3.js"
+      integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="panier.scss" />
+    <script type="module" src="panier.js"></script>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Panier</h1>
+
+    <div class="shopping-cart">
+      <div class="column-labels">
+        <label class="product-image">Image</label>
+        <label class="product-details">Produit</label>
+        <label class="product-price">Prix</label>
+        <label class="product-quantity">Quantité</label>
+        <label class="product-removal">Supprimer</label>
+        <label class="product-line-price">Total</label>
+      </div>
+
+      <div class="product">
+        <div class="product-image">
+          <img src="assets/images/hogwarts.jpg" />
+        </div>
+        <div class="product-details">
+          <div class="product-title">Hogwarts</div>
+          <p class="product-description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, dolore
+            ab non voluptates hic quod nesciunt in! Minus ipsa quod consequatur
+            itaque amet laudantium, sapiente beatae ducimus. Ipsam, sapiente
+            quis?
+          </p>
+        </div>
+        <div class="product-price">45.00</div>
+        <div class="product-quantity">
+          <input type="number" value="2" min="1" />
+        </div>
+        <div class="product-removal">
+          <button class="remove-product">Supprimer</button>
+        </div>
+        <div class="product-line-price">45.00</div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">
+          <img src="assets/images/hogwarts.jpg" />
+        </div>
+        <div class="product-details">
+          <div class="product-title">Hogwarts</div>
+          <p class="product-description">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti
+            id maiores molestiae asperiores, perspiciatis alias esse. Voluptates
+            ratione aliquam molestiae eius facere mollitia aut ad eligendi odit?
+            Asperiores, velit vel.
+          </p>
+        </div>
+        <div class="product-price">45.00</div>
+        <div class="product-quantity">
+          <input type="number" value="1" min="1" />
+        </div>
+        <div class="product-removal">
+          <button class="remove-product">Supprimer</button>
+        </div>
+        <div class="product-line-price">45.00</div>
+      </div>
+
+      <div class="totals">
+        <div class="totals-item">
+          <label>Sous total</label>
+          <div class="totals-value" id="cart-subtotal">90</div>
+        </div>
+        <div class="totals-item">
+          <label>Réduction (5%)</label>
+          <div class="totals-value" id="cart-tax">4.50</div>
+        </div>
+        <div class="totals-item">
+        </div>
+        <div class="totals-item totals-item-total">
+          <label>Total</label>
+          <div class="totals-value" id="cart-total">85.50</div>
+        </div>
+      </div>
+
+      <button class="checkout">Procéder au paiement</button>
+    </div>
+  </body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <style>
+    body {
+      background-image: none;
+    }
+    .img-container {
+      width: 70%;
+      height: 55%;
+      position: absolute;
+      top: 15%;
+      left: 5%;
+      border: solid;
+      border-color: black;
+      border-width: 0.2em;
+      z-index: 9;
+      box-shadow: 10px 7px 7px #45f3ff;
+      border-radius: 10px;
+    }
+    .img-container > p {
+      color: white;
+      position: relative;
+      left: 11%;
+    }
+    .button {
+      position: absolute;
+      top: 30%;
+      right: 39.5%;
+      background-color: black;
+      color: white;
+    }
+    .panier > p {
+      position: absolute;
+      top: 20%;
+      color: white;
+      right: 40%;
+    }
+    input {
+      height: 2em;
+      width: 3em;
+      position: absolute;
+      top: 25%;
+      right: 39%;
+    }
+    label {
+      position: absolute;
+      top: 25%;
+      right: 45.5%;
+      color: white;
+    }
+    .all {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+  <body>
+    <section>
+      <div class="img-container">
+        <img src="/assets/images/hogwarts.jpg" />
+        <p>Hogwarts Legacy</p>
+      </div>
+      <div class="all">
+        <div class="panier">
+          <p>Prix officiel: 100€</p>
+          <input type="number" name="qty" id="quantité" min="0" max="10" />
+          <label name="qty"> Quantité</label>
+          <button href="#" class="button" onclick="">Achetez maintenant</button>
+        </div>
+      </div>
+    </section>
+  </body>
+</html> -->

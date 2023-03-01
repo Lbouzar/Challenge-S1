@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/js/my.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        background-color: black;
+      }
+      html,
+      body {
+        overflow-x: hidden;
+      }
+      .slider {
+        display: flex;
+        align-items: center;
+        height: 100vh;
+        justify-content: center;
+        width: 100%;
+      }
+      .main-scroll-div {
+        width: 90%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 2px solid red;
+      }
+      .cover {
+        position: relative;
+        width: 90%;
+        height: 50%;
+        overflow: hidden;
+      }
+      .cover::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 99;
+        height: 100%;
+        width: 150px;
+        background-image: linear-gradient(90deg, black, transparent);
+      }
+      .cover::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 99;
+        height: 100%;
+        width: 150px;
+        background-image: linear-gradient(-90deg, black, transparent);
+      }
+      .scroll-image {
+        width: 100;
+        height: auto;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        overflow-x: auto !important;
+        position: relative;
+        scroll-behavior: smooth;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        -webkit-user-drag: none;
+        z-index: 9999;
+      }
+      .scroll-image:active {
+        cursor: grabbing;
+        cursor: -webkit-grabbing;
+      }
+      .child {
+        min-width: 600px;
+        height: 450px;
+        margin: 1px 10px;
+        cursor: pointer;
+        border: 1px solid white;
+        overflow: hidden;
+      }
+      .scroll-image::-webkit-scrollbar {
+        -webkit-appearance: none;
+      }
+
+      .child-img {
+        width: 100%;
+        height: 100%;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        -webkit-user-drag: none;
+        cursor: pointer;
+      }
+      .icon {
+        color: white;
+        background-color: black;
+        font-size: 50px;
+        outline: none;
+        border: none;
+        padding: 0px 20px;
+        cursor: pointer;
+      }
+      .icon:hover {
+        font-size: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="slider">
+      <div class="main-scroll-div">
+        <div>
+          <button class="icon" onclick="scrollr()">
+            <span class="material-symbols-outlined"> arrow_back_ios </span>
+          </button>
+        </div>
+        <div class="cover">
+          <div class="scroll-image">
+            <div class="child">
+              <img
+                class="child-img"
+                src="/assets/images/background.jpg"
+                alt="images"
+              />
+            </div>
+            <div class="child">
+              <img
+                class="child-img"
+                src="/assets/images/images-background.webp"
+                alt="images"
+              />
+            </div>
+            <div class="child">
+              <img
+                class="child-img"
+                src="/assets/images/background.jpg"
+                alt="images"
+              />
+            </div>
+            <div class="child">
+              <img
+                class="child-img"
+                src="/assets/images/images-background.webp"
+                alt="images"
+              />
+            </div>
+            <div class="child">
+              <img
+                class="child-img"
+                src="/assets/images/background.jpg"
+                alt="images"
+              />
+            </div>
+            <div class="child">
+              <img
+                class="child-img"
+                src="/assets/images/images-background.webp"
+                alt="images"
+              />
+            </div>
+          </div>
+        </div>
+        <div>
+          <button class="icon" onclick="scrolll()">
+            <span class="material-symbols-outlined"> arrow_forward_ios </span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script>
+    let left = document.querySelector(".scroll-image");
+
+    function scrolll() {
+      var left = document.querySelector(".scroll-image");
+      left.scrollBy(350, 0);
+    }
+    function scrollr() {
+      var right = document.querySelector(".scroll-image");
+      right.scrollBy(-350, 0);
+    }
+    let isDragging = false;
+    let currentX;
+    let initialX;
+    let xOffset = 0;
+    let scrollLeft;
+    let slider = document.querySelector(".child");
+
+    left.addEventListener("mousedown", function (e) {
+      initialX = e.clientX;
+      isDragging = true;
+      console.log(left.offsetX);
+      console.log("client", e.clientX);
+    });
+    left.addEventListener("mouseup", function (e) {
+      isDragging = false;
+      xOffset = 0;
+    });
+    left.addEventListener("mouseleave", function (e) {
+      isDragging = false;
+      xOffset = 0;
+    });
+    left.addEventListener("mousemove", function (e) {
+      if (isDragging) {
+        currentX = e.clientX;
+        if (currentX > initialX) {
+          left.scrollBy(-350, 0);
+        }
+        if (currentX < initialX) {
+          left.scrollBy(350, 0);
+        }
+      }
+    });
+    left.addEventListener("touchstart", function (e) {
+      initialX = e.clientX;
+      isDragging = true;
+      console.log(left.offsetX);
+      console.log("client", e.clientX);
+    });
+    left.addEventListener("touchend", function (e) {
+      isDragging = false;
+      xOffset = 0;
+    });
+    left.addEventListener("touchcancel", function (e) {
+      isDragging = false;
+      xOffset = 0;
+    });
+    left.addEventListener("touchmove", function (e) {
+      if (isDragging) {
+        currentX = e.clientX;
+        if (currentX > initialX) {
+          left.scrollBy(-350, 0);
+        }
+        if (currentX < initialX) {
+          left.scrollBy(350, 0);
+        }
+      }
+    });
+  </script>
+</html>

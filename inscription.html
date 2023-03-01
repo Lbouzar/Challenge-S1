@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Inscription</title>
+    <link rel="stylesheet" href="/assets/inscription_connexion.css" />
+  </head>
+  <body>
+    <div>
+      <img class="logo-steam" src="assets/images/logo_steam.svg" alt="logo" />
+    </div>
+    <div class="box box-inscription">
+      <form autocomplete="off">
+        <h2>Inscription</h2>
+        <div class="inputBox">
+          <input type="email" required="required" />
+          <span>Adresse email</span>
+          <i></i>
+        </div>
+        <div class="inputBox">
+          <input type="text" required="required" />
+          <span>Userame</span>
+          <i></i>
+        </div>
+        <div class="inputBox">
+          <input type="password" required="required" />
+          <span>Mot de passe</span>
+          <i></i>
+        </div>
+        <div class="inputBox">
+          <input type="password" required="required" />
+          <span>Confirmez le mot de passe</span>
+          <i></i>
+        </div>
+
+        <div class="check">
+          <input
+            class="checkbox"
+            type="checkbox"
+            id="checkbox"
+            name="checkbox"
+            value="age"
+            required="required"
+          />
+          <label for="age">Avez-vous plus de 13 ans?</label>
+        </div>
+
+        <input type="submit" class="inscription" value="Créer votre compte" />
+      </form>
+    </div>
+  </body>
+</html>
